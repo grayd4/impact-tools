@@ -23,7 +23,9 @@ const square = squareQueryParam === 'true'*/
 const prod = true
 const square = false
 
-const file_name = "2023_Thru_Permitted"
+//const file_name = "2023_Thru_Permitted"
+const file_name = "Sonoran_Preserve"
+
 
 if (square) {
   document.getElementById("map").style.height = '1080px';
@@ -154,34 +156,34 @@ const playAnimations = async (trackGeojson) => {
     const { bearing, altitude } = await flyInAndRotate({
       map,
       targetLngLat,
-      duration: prod ? 7000 : 5000,
+      duration: prod ? 5000 : 5000,
       startAltitude: 3000000,
-      endAltitude: 12000,
-      startBearing: 0,
-      endBearing: -20,
-      startPitch: 40,
-      endPitch: 50,
+      endAltitude: 3000,
+      startBearing: 40,
+      endBearing: 20,
+      startPitch: 30,
+      endPitch: 60,
       prod
     });
 
     // follow the path while slowly rotating the camera, passing in the camera bearing and altitude from the previous animation
     await animatePath({
       map,
-      duration: prod ? 60000 : 20000,
+      duration: prod ? 20000 : 20000,
       path: trackGeojson,
       startBearing: bearing,
       startAltitude: altitude,
-      pitch: 50,
+      pitch: 60,
       prod
     });
 
     // get the bounds of the linestring, use fitBounds() to animate to a final view
     const bounds = turf.bbox(trackGeojson);
     map.fitBounds(bounds, {
-      duration: 3000,
-      pitch: 30,
-      bearing: 0,
-      padding: 120,
+      duration: 6000,
+      pitch: 80,
+      bearing: 20,
+      padding: 400,
     });
 
     setTimeout(() => {
@@ -203,7 +205,7 @@ const addPathSourceAndLayer = (trackGeojson) => {
     type: "line",
     source: "line",
     paint: {
-      "line-color": "rgba(0,0,0,0)",
+      "line-color": "rgba(0,0,0,0)", // transparent
       "line-width": 9,
       "line-opacity": 0.8,
     },
@@ -215,22 +217,34 @@ const addPathSourceAndLayer = (trackGeojson) => {
 
   /*map.addSource("start-pin-base", {
     type: "geojson",
-    data: createGeoJSONCircle(trackGeojson.geometry.coordinates[0], 0.04)
+    data: createGeoJSONCircle([
+      -119.51452810483813,
+                37.73291294354329
+  ], 0.04)
   });
 
   map.addSource("start-pin-top", {
     type: "geojson",
-    data: createGeoJSONCircle(trackGeojson.geometry.coordinates[0], 0.25)
+    data: createGeoJSONCircle([
+      -119.51452810483813,
+                37.73291294354329
+  ], 0.25)
   });
 
   map.addSource("end-pin-base", {
     type: "geojson",
-    data: createGeoJSONCircle(trackGeojson.geometry.coordinates.slice(-1)[0], 0.04)
+    data: createGeoJSONCircle([
+      -119.57328,
+                37.7278
+  ], 0.04)
   });
 
   map.addSource("end-pin-top", {
     type: "geojson",
-    data: createGeoJSONCircle(trackGeojson.geometry.coordinates.slice(-1)[0], 0.25)
+    data: createGeoJSONCircle([
+      -119.57328,
+                37.7278
+  ], 0.25)
   });
 
   map.addLayer({
@@ -238,7 +252,7 @@ const addPathSourceAndLayer = (trackGeojson) => {
     type: "fill-extrusion",
     source: "start-pin-base",
     paint: {
-      'fill-extrusion-color': '#0bfc03',
+      'fill-extrusion-color': '#ffff00',
       'fill-extrusion-height': 1000
     }
   });
@@ -247,7 +261,7 @@ const addPathSourceAndLayer = (trackGeojson) => {
     type: "fill-extrusion",
     source: "start-pin-top",
     paint: {
-      'fill-extrusion-color': '#0bfc03',
+      'fill-extrusion-color': '#ffff00',
       'fill-extrusion-base': 1000,
       'fill-extrusion-height': 1200
     }
@@ -258,7 +272,7 @@ const addPathSourceAndLayer = (trackGeojson) => {
     type: "fill-extrusion",
     source: "end-pin-base",
     paint: {
-      'fill-extrusion-color': '#eb1c1c',
+      'fill-extrusion-color': '#40e0d0',
       'fill-extrusion-height': 1000
     }
   });
@@ -267,11 +281,11 @@ const addPathSourceAndLayer = (trackGeojson) => {
     type: "fill-extrusion",
     source: "end-pin-top",
     paint: {
-      'fill-extrusion-color': '#eb1c1c',
+      'fill-extrusion-color': '#40e0d0',
       'fill-extrusion-base': 1000,
       'fill-extrusion-height': 1200
     }
-  });
-*/
+  });*/
+
 
 };

@@ -8,6 +8,10 @@ in browser, go to 127.0.0.1:8000
 
 Commit with the flag --no-verify to dodge unneeded node steps
 
+Run this after downloading to compress video:
+
+'ffmpeg -i my_video.mp4 my_video_compressed.mp4'
+
 # tdf-animation-sequence
 
 Demonstration of a sequence of custom mapboxgl camera and layer animations to display a Tour de France stage

@@ -20,14 +20,14 @@ const computeCameraPosition = (
   var lngDiff =
     ((altitude / Math.tan(pitchInRadian)) *
       Math.sin(-bearingInRadian)) /
-    70000; // ~70km/degree longitude
+    88890; // ~70km/degree longitude
   var latDiff =
     ((altitude / Math.tan(pitchInRadian)) *
       Math.cos(-bearingInRadian)) /
     110000 // 110km/degree latitude
 
-  var correctedLng = targetPosition.lng + lngDiff;
-  var correctedLat = targetPosition.lat - latDiff;
+  var correctedLng = targetPosition.lng + lngDiff + 0.01 + 0.02 * bearingInRadian;
+  var correctedLat = targetPosition.lat - latDiff + 0.01 + 0.01 * bearingInRadian;
 
   const newCameraPosition = {
     lng: correctedLng,

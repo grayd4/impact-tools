@@ -39,16 +39,157 @@ const animatePath = async ({
         "line-layer",
         "line-gradient",
         [
+          'step',
+          ['line-progress'],
+          0,
+          'blue',
+          animationPhase,
+          'rgba(0,0,0,0)'
+        ]
+      );
+    /*var color = 'blue';
+      if (animationPhase < 0.1) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            'step',
+            ['line-progress'],
+            0,
+            'blue',
+            animationPhase,
+            'rgba(0,0,0,0)'
+          ]
+        );
+      }
+      else if (animationPhase < 0.5) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            'step',
+            ['line-progress'],
+            0,
+            'blue',
+            0.5,
+            'yellow',
+            animationPhase,
+            'rgba(0,0,0,0)'
+          ]
+        );
+      }
+      else if (animationPhase < 1) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            'step',
+            ['line-progress'],
+            0,
+            'blue',
+            0.5,
+            'yellow',
+            1,
+            'red'
+          ]
+        );
+      }*/
+
+      /*if (animationPhase < 0.2265) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            "step",
+            ["line-progress"],
+            "yellow",
+            animationPhase,
+            "rgba(0,0,0,0)"
+         ]
+        );
+      } else if (animationPhase < 0.448) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            "step",
+            ["line-progress"],
+            "yellow",
+            0.2265,
+            "lime",
+            animationPhase,
+            "rgba(0,0,0,0)"
+         ]
+        );
+      } else*/ //if (animationPhase < 0.495) {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            "step",
+            ["line-progress"],
+            //"yellow",
+            //0.2265,
+            //"lime",
+            //0.448,
+            "turquoise",
+            animationPhase,
+            "rgba(0,0,0,0)"
+         ]
+        );
+      /*} else {
+        map.setPaintProperty(
+          "line-layer",
+          "line-gradient",
+          [
+            "step",
+            ["line-progress"],
+            //"yellow",
+            //0.2265,
+            //"lime",
+            //0.448,
+            "yellow",
+            0.495,
+            "turquoise",
+            animationPhase,
+            "rgba(0,0,0,0)"
+         ]
+        );
+      }*/
+
+      /*map.setPaintProperty(
+        "line-layer",
+        "line-gradient",
+        [
           "step",
           ["line-progress"],
           "yellow",
-          animationPhase,
+          0.2,
+          "lime",
+          0.5, 
+          "red",
+          0.7, //(animationPhase),
           "rgba(0, 0, 0, 0)",
+          //"red"
        ]
-      );
+       /*
+       'line-gradient', //https://docs.mapbox.com/mapbox-gl-js/example/line-gradient/
+       [
+        'step',
+        ['line-progress'],
+        0,
+        0 < animationPhase ? 'blue' : 'rgba(0,0,0,0)',
+        0.5,
+        0.5 < animationPhase ? 'lime' : 'rgba(0,0,0,0)',
+        1,
+        1 <= animationPhase ? 'red' : 'rgba(0,0,0,0)',
+        "rgba(0,0,0,0)",
+        ]*/
+      //);
 
       // slowly rotate the map at a constant rate
-      const bearing = startBearing - animationPhase * 200.0;
+      const bearing = startBearing - animationPhase * 50.0;
+      //const bearing = startBearing;
 
       // compute corrected camera ground position, so that he leading edge of the path is in view
       var correctedPosition = computeCameraPosition(
